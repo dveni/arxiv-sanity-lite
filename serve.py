@@ -90,6 +90,8 @@ def render_pid(pid):
     thumb_path = 'static/thumb/' + pid + '.jpg'
     thumb_url = thumb_path if os.path.isfile(thumb_path) else ''
     d = pdb[pid]
+    print(d['tags'])
+
     return dict(
         weight = 0.0,
         id = d['_id'],
