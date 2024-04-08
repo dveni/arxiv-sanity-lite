@@ -3,6 +3,8 @@ import argparse
 import pandas as pd
 import time
 
+# Example usage: python zotero_ingest.py -f zotero_ingest.py -u dveni
+
 if __name__ == "__main__":
 
     timenow = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
@@ -67,7 +69,8 @@ if __name__ == "__main__":
             print(f"skipping invalid paper {p['Key']}")
             invalid_papers.append(p)
             continue
-        p['_id'] = p['DOI']
+        
+        p['_id'] = p['DOI'].replace('/', '-')
         p['_time'] = time.time()#time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         p['_time_str'] = time.strftime("%b %d %Y", time.gmtime())
         p['title'] = p['Title']
