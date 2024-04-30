@@ -78,7 +78,7 @@ if __name__ == "__main__":
         p['tags'] = [{'term': 'cs.CV',
                         'scheme': 'http://arxiv.org/schemas/atom',
                         'label': None}]#p['Automatic Tags'].split('-') #p['Manual Tags'] 
-        p['authors'] = [{'name': name for name in p['Author'].split(';')}]
+        p['authors'] = [{'name': name for name in p['Author'].split(';').reverse()}]
         
 
         pid = p['_id']
